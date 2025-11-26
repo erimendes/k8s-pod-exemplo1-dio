@@ -1,0 +1,15 @@
+# mysql-service.yml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  type: ClusterIP
+  selector:
+    app: mysql-db # Seleciona os Pods criados pelo Deployment (que tem a label app: mysql-db)
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+      protocol: TCP
